@@ -103,17 +103,19 @@ FastAPI Backend
 - No email or customer-message delivery integration
 - Additional security and deployment testing required
 
+
 ## Screenshots
 
 ### Dashboard
-![Helio Dashboard](![01-dashboard.png](screenshots/01-dashboard.png))
+![Helio Dashboard](screenshots/01-dashboard.png)
 
 ### Inbox
-![Helio Inbox](![02-inbox.png](screenshots/02-inbox.png))
+![Helio Inbox](screenshots/02-inbox.png)
 
 ### AI-Powered Response
+![Helio AI Response](screenshots/03-ai-response.png)
 
-![Helio AI Response](![03-ai-response.png](screenshots/03-ai-response.png))
+
 ## Author
 
 Emyr Hickey
