@@ -1,48 +1,114 @@
-# AI Support Automation Platform — backend starter
 
-A portfolio project built with Python, FastAPI, PostgreSQL, Docker and SQLModel.
+# Helio — AI Support Automation Platform
 
-**Current scope:** ticket CRUD basics (create, list, get, update status), validation, interactive API docs and tests. **AI responses, authentication, RAG and deployment are not implemented yet.** Do not present this as a completed AI product in your CV.
+A full-stack AI-powered customer support application built with Python, FastAPI, React, PostgreSQL, Docker and Ollama.
 
-## Requirements
-- Docker Desktop with Docker Compose, or Python 3.12+
+Helio helps support agents manage customer tickets, classify requests using a local language model, and draft responses grounded in company knowledge documents.
 
-## Run with Docker (PostgreSQL)
-```bash
+## Features
+
+- JWT authentication and password hashing
+- User-specific ticket management
+- Ticket creation, filtering and status updates
+- AI ticket classification and response suggestions
+- Retrieval-Augmented Generation (RAG)
+- User-specific knowledge base
+- Knowledge retrieval using keyword and topic matching
+- React dashboard with ticket management and AI tools
+- Automated backend tests
+
+## Tech Stack
+
+**Backend:** Python, FastAPI, SQLModel, PostgreSQL, PyJWT
+
+**Frontend:** React, TypeScript, Vite, CSS
+
+**AI:** Ollama, Gemma 3 1B, RAG
+
+**Infrastructure:** Docker, Docker Compose, Git
+
+## Getting Started
+
+Requirements:
+- Docker Desktop
+- Node.js and npm
+- Ollama
+- Git
+
+### 1. Clone the repository
+
+git clone https://github.com/Hickey2611/helio-ai-support-platform.git
+
+cd helio-ai-support-platform
+
+### 2. Configure environment variables
+
+Create a `.env` file in the project root:
+
+JWT_SECRET=YOUR_RANDOM_SECRET
+
+Generate a unique cryptographically random secret for local development. Never commit this file.
+
+### 3. Start the backend
+
 docker compose up --build
-```
-Open **http://localhost:8000/docs** to try the API.
 
-To stop: `Ctrl+C`, then `docker compose down`.
+FastAPI documentation:
+http://localhost:8000/docs
 
-## Run locally without Docker (SQLite)
-On Windows PowerShell:
-```powershell
-py -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
-Open **http://127.0.0.1:8000/docs**.
+### 4. Start Ollama
 
-## Test
-```bash
-python -m pytest -q
-```
+ollama pull gemma3:1b
 
-## Try POST /tickets in Swagger
-```json
-{
-  "customer_email": "customer@example.com",
-  "subject": "Where is my order?",
-  "message": "My delivery has not arrived."
-}
-```
+Make sure the Ollama server is accessible from the API container.
 
-## Next milestones
-1. Authentication and organization-level isolation; database migrations.
-2. Knowledge-base documents and semantic retrieval (RAG).
-3. LLM-drafted responses with citations, confidence checks and human review.
-4. Background jobs, logging, security hardening, tests, CI and deployment.
+### 5. Start the frontend
 
-> Local development only. The API has no authentication yet. Don't expose it publicly or upload real customer data.
+cd frontend
+
+npm install
+
+npm run dev
+
+Open http://localhost:5173
+
+## Testing
+
+Run the backend tests:
+
+docker compose run --rm --no-deps api python -m pytest -q
+
+Last reported local result: 11 passed.
+
+## Architecture
+
+React Dashboard
+|
+v
+FastAPI Backend
+|
++-- PostgreSQL (Tickets, Users, Knowledge)
+|
++-- Ollama (Gemma 3)
+|
++-- AI Classification
++-- RAG Response Generation
+
+## Limitations
+
+- Local-development portfolio application
+- AI responses are drafts requiring human review
+- Keyword/topic-based retrieval, not vector search
+- Not deployed as a public production service
+- No email or customer-message delivery integration
+- Additional security and deployment testing required
+
+## Author
+
+Emyr Hickey
+
+GitHub: https://github.com/Hickey2611
+
+## Project Status
+
+Functional local portfolio MVP. Further production hardening, database migrations and automated security testing are planned.
