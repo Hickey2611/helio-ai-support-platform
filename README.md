@@ -106,13 +106,13 @@ FastAPI Backend
 ## Screenshots
 
 ### Dashboard
-![Helio Dashboard](screenshots/01-dashboard.png)
+![Helio Dashboard](![01-dashboard.png.png](screenshots/01-dashboard.png.png))
 
 ### Inbox
-![Helio Inbox](screenshots/02-inbox.png)
+![Helio Inbox](![02-inbox.png.png](screenshots/02-inbox.png.png))
 
 ### AI-Powered Response
-![Helio AI Response](screenshots/03-ai-response.png)
+![Helio AI Response](![03-ai-response.png.png](screenshots/03-ai-response.png.png))
 ## Author
 
 Emyr Hickey
